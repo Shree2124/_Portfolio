@@ -19,3 +19,49 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 } */
+
+
+/* globals.css */
+/* .bg-gradient-animation {
+  background: linear-gradient(120deg, #080808 0%, #222222 25%, #161616 50%, #333 75%, #111 100%);
+  background-size: 400% 400%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+} */
+
+
+.bg-gradient-animation {
+  background: linear-gradient(
+    135deg,
+    #0d0d0d 0%,
+    #1a1a1a 25%,
+    #161414 50%,
+    #130d16 75%,
+    #1c1c1c 100%
+  );
+  background-size: 300% 300%;
+  animation: darkGradientAnimation 20s ease-in-out infinite;
+}
+
+@keyframes darkGradientAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

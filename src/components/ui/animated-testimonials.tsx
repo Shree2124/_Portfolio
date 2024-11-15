@@ -4,6 +4,7 @@ import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import Title from "../Title/Title";
 
 type Testimonial = {
   description: string;
@@ -43,10 +44,11 @@ export const AnimatedTestimonials = ({
     return Math.floor(Math.random() * 21) - 10;
   };
   return (
-    <div className="max-w-sm md:max-w-4xl mx-auto bg-black antialiased font-sans px-4 md:px-8 lg:px-12 py-20 text-black">
+    <div className="mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-16">
+      <Title text="About Me"/>
       <div className="relative grid grid-cols-1 md:grid-cols-2  gap-20">
         <div>
-          <div className="relative h-80 w-full">
+          <div className="relative h-80 w-full sm:py-3">
             <AnimatePresence>
               {testimonials.map((testimonial, index) => (
                 <motion.div
@@ -94,6 +96,7 @@ export const AnimatedTestimonials = ({
         </div>
         <div className="flex justify-between flex-col py-4">
           <motion.div
+          className=""
             key={active}
             initial={{
               y: 20,
@@ -112,13 +115,13 @@ export const AnimatedTestimonials = ({
               ease: "easeInOut",
             }}
           >
-            <h3 className="text-2xl font-bold dark:text-white text-black">
+            <h3 className="relative text-2xl font-bold dark:text-white text-black">
               {testimonials[active].title}
             </h3>
-            <p className="text-sm text-gray-500 dark:text-neutral-500">
+            <p className="relative text-sm text-gray-500 dark:text-neutral-500">
               {testimonials[active].designation}
             </p>
-            <motion.p className="text-lg text-gray-500 mt-8 dark:text-neutral-300">
+            <motion.p className="relative text-lg w-full text-gray-500 mt-8 dark:text-neutral-300">
               {testimonials[active].description.split(" ").map((word, index) => (
                 <motion.span
                   key={index}
@@ -144,7 +147,7 @@ export const AnimatedTestimonials = ({
               ))}
             </motion.p>
           </motion.div>
-          <div className="flex gap-4 pt-12 md:pt-0">
+          <div className="relative flex gap-4 pt-12 md:pt-0">
             <button
               onClick={handlePrev}
               className="h-7 w-7 rounded-full bg-gray-100 dark:bg-neutral-800 flex items-center justify-center group/button"
