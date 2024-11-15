@@ -35,11 +35,8 @@ export default function Page() {
           <BackgroundBeamsDemo />
         </div>
 
-        {/* Wrapped About, Skills, and Projects in BackgroundBeamsWithCollision */}
         <BackgroundBeamsWithCollisionDemo>
-          {/* Content Inside the Animated Beams */}
           <div className="relative z-10">
-            {/* About Section */}
             <div id="about" className=" shadow-xl">
               {isClient && (
                 <motion.div
@@ -52,14 +49,12 @@ export default function Page() {
               )}
             </div>
 
-            {/* Skills Section */}
             <div id="skills" className="shadow-xl pb-10">
               <div className="mx-auto max-w-screen-xl px-4">
                 <Skills />
               </div>
             </div>
 
-            {/* Projects Section */}
             <div id="projects" className="text-white shadow-xl">
               <div className="mx-auto max-w-screen-xl px-4">
                 <div className="pt-20 pl-16">

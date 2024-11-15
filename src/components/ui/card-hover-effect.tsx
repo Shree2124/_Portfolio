@@ -1,7 +1,10 @@
 import { cn } from "@/lib/utils";
+import { Box, CardMedia, Chip, Tooltip } from "@mui/material";
 import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
+import { FaCode } from "react-icons/fa6";
+import { GrDeploy } from "react-icons/gr";
 
 export const HoverEffect = ({
   items,
@@ -9,8 +12,11 @@ export const HoverEffect = ({
 }: {
   items: {
     title: string;
+    img: string;
     description: string;
-    link: string;
+    githubLink: string;
+    liveDemo: string;
+    techStack: string[];
   }[];
   className?: string;
 }) => {
@@ -25,9 +31,9 @@ export const HoverEffect = ({
         )}
       >
         {items.map((item, idx) => (
-          <Link
-            href={item?.link}
-            key={item?.link}
+          <div
+            // href={item?.githubLink}
+            key={crypto.randomUUID()}
             className="relative group block p-2 h-full w-full"
             onMouseEnter={() => setHoveredIndex(idx)}
             onMouseLeave={() => setHoveredIndex(null)}
@@ -51,9 +57,65 @@ export const HoverEffect = ({
             </AnimatePresence>
             <Card>
               <CardTitle>{item.title}</CardTitle>
+              <CardMedia
+                component="img"
+                alt={item.title}
+                height="140"
+                image={item.img}
+                sx={{
+                  paddingTop: 2
+                }}
+              />
               <CardDescription>{item.description}</CardDescription>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: 1,
+                  marginBottom: 2,
+                  marginTop: 3,
+                }}
+              >
+                {item?.techStack?.map((tech, index) => (
+                  <Chip
+                    key={index}
+                    label={tech}
+                    sx={{
+                      backgroundColor: "#1A1A2E",
+                      color: "#FFF",
+                      borderColor: "#00FFFF",
+                      borderWidth: "1px",
+                      borderStyle: "solid",
+                      fontWeight: "bold",
+                      fontSize: "0.75rem",
+                    }}
+                    size="small"
+                  />
+                ))}
+              </Box>
+              <Box
+                sx={{
+                  position: "relative",
+                  bottom: 0,
+                  display: "flex",
+                  justifyContent: "space-between",
+                  marginTop: 3,
+                  paddingX: 3,
+                }}
+              >
+                <Link href={item.liveDemo}>
+                <Tooltip title="Live demo">
+                  <GrDeploy />
+                </Tooltip>
+                </Link>
+                <Link href={item.githubLink}>
+                <Tooltip title="Source code">
+                  <FaCode />
+                </Tooltip>
+                </Link>
+              </Box>
             </Card>
-          </Link>
+          </div>
         ))}
       </div>
     </div>

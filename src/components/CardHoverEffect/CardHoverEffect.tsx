@@ -2,40 +2,47 @@ import { HoverEffect } from "../ui/card-hover-effect";
 
 export const projects = [
   {
-    title: "Stripe",
+    title: "Learnify",
+    img: "/prj/ScrollHack.png",
     description:
-      "A technology company that builds economic infrastructure for the internet.",
-    link: "https://stripe.com",
+      "An innovative solution developed during a hackathon, utilizing modern web technologies to address real-world challenges efficiently and creatively.",
+    githubLink: "https://github.com/Shree2124/ScrollHack",
+    liveDemo: "",
+    techStack: [
+      "MongoDB",
+      "Express",
+      "React",
+      "Node.js",
+      "Tailwind css",
+      "MUI",
+    ],
   },
   {
-    title: "Netflix",
+    title: "TuneTube",
+    img: "/prj/playtube.png",
     description:
-      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
-    link: "https://netflix.com",
+      "A feature-rich YouTube clone built using the MERN stack, enabling video upload, playback, and user interaction. It replicates the core functionalities of YouTube, providing a seamless video streaming experience with a custom-built backend to handle media storage and retrieval.",
+    githubLink: "https://github.com/Shree2124/Youtube-Clone",
+    liveDemo: "https://youtube-clone-ca89.vercel.app/",
+    techStack: ["MongoDB", "Express", "React", "Node.js"],
   },
   {
-    title: "Google",
+    title: "Blogify",
+    img: "/prj/blog.png",
     description:
-      "A multinational technology company that specializes in Internet-related services and products.",
-    link: "https://google.com",
+      "A dynamic blog platform built with React for the frontend and Appwrite as the backend service. It allows users to create, edit, and delete blog posts with a user-friendly interface, making content management seamless. The project also includes basic user authentication and data storage capabilities.",
+    githubLink: "https://github.com/Shree2124/Blogify",
+    liveDemo: "",
+    techStack: ["React", "Appwrite"],
   },
   {
-    title: "Meta",
+    title: "Blogify",
+    img: "/prj/blog.png",
     description:
-      "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
-    link: "https://meta.com",
-  },
-  {
-    title: "Amazon",
-    description:
-      "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
-    link: "https://amazon.com",
-  },
-  {
-    title: "Microsoft",
-    description:
-      "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
-    link: "https://microsoft.com",
+      "A dynamic blog platform built with React for the frontend and Appwrite as the backend service. It allows users to create, edit, and delete blog posts with a user-friendly interface, making content management seamless. The project also includes basic user authentication and data storage capabilities.",
+    githubLink: "https://github.com/Shree2124/Blogify",
+    liveDemo: "",
+    techStack: ["React", "Appwrite"],
   },
 ];
 
