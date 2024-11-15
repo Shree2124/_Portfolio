@@ -70,8 +70,8 @@ const Navbar = () => {
               </ScrollLink>
             ))}
           </Box>
-          <IconButton edge="start" color="white" aria-label="menu" onClick={handleDrawerToggle} sx={{ display: { md: "none" },color: "white" }}>
-            <MenuIcon color="white" />
+          <IconButton edge="start" aria-label="menu" onClick={handleDrawerToggle} sx={{ display: { md: "none" },color: "white" }}>
+            <MenuIcon />
           </IconButton>
         </Toolbar>
       </AppBar>
