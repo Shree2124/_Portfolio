@@ -1,13 +1,11 @@
-"use client";
+"use client";;
 import { AboutSection } from "@/components/AnimatedTestimonials/AnimatedTestimonials";
-import { AuroraBackgroundDemo } from "@/components/AuroraBackground/AuroraBackground";
 import { BackgroundBeamsDemo } from "@/components/BackgroundBeams/BackgroundBeams";
 import { useState, useEffect } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar/Navbar";
 import Skills from "@/components/Skills/Skills";
 import { CardHoverEffectDemo } from "@/components/CardHoverEffect/CardHoverEffect";
-import GradientBackground from "@/components/GradiantBackground/GradiantBackground";
 import { BackgroundBeamsWithCollisionDemo } from "@/components/BackgroundBeamsWithCollision/BackgroundBeamsWithCollision";
 import Title from "@/components/Title/Title";
 

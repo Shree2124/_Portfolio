@@ -27,7 +27,7 @@ const Navbar = () => {
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: "#fff" }}>
             <motion.div className="font-sans font-bold" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
-              Shree's Portfolio
+              Shree&apos;s Portfolio
             </motion.div>
           </Typography>
           

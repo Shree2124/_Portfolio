@@ -1,7 +1,5 @@
-// GradientBackground.tsx
 import React from "react";
 import "@/app/globals.css"
-import { BackgroundBeamsWithCollisionDemo } from "../BackgroundBeamsWithCollision/BackgroundBeamsWithCollision";
 
 const GradientBackground = () => {
   return (

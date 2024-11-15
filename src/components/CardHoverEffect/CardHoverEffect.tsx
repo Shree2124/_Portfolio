@@ -1,4 +1,3 @@
-import Title from "../Title/Title";
 import { HoverEffect } from "../ui/card-hover-effect";
 
 export const projects = [
