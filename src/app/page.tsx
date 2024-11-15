@@ -1,4 +1,4 @@
-"use client";;
+"use client";
 import { AboutSection } from "@/components/AnimatedTestimonials/AnimatedTestimonials";
 import { BackgroundBeamsDemo } from "@/components/BackgroundBeams/BackgroundBeams";
 import { useState, useEffect } from "react";
@@ -8,6 +8,7 @@ import Skills from "@/components/Skills/Skills";
 import { CardHoverEffectDemo } from "@/components/CardHoverEffect/CardHoverEffect";
 import { BackgroundBeamsWithCollisionDemo } from "@/components/BackgroundBeamsWithCollision/BackgroundBeamsWithCollision";
 import Title from "@/components/Title/Title";
+import Head from "next/head";
 
 export default function Page() {
   const [isClient, setIsClient] = useState(false);
@@ -17,17 +18,25 @@ export default function Page() {
   }, []);
 
   return (
-    <div className="relative h-full w-full">
-      {/* Navbar */}
-      <Navbar />
+    <>
+      <Head>
+        <title>Home Page</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <div className="relative h-full w-full">
+        {/* Navbar */}
+        <Navbar />
 
-      {/* Background Section */}
-      <div id="home" className="h-screen w-full overflow-hidden relative z-0 shadow-lg">
-        <BackgroundBeamsDemo />
-      </div>
+        {/* Background Section */}
+        <div
+          id="home"
+          className="h-screen w-full overflow-hidden relative z-0 shadow-lg"
+        >
+          <BackgroundBeamsDemo />
+        </div>
 
-      {/* Wrapped About, Skills, and Projects in BackgroundBeamsWithCollision */}
-      <BackgroundBeamsWithCollisionDemo>
+        {/* Wrapped About, Skills, and Projects in BackgroundBeamsWithCollision */}
+        <BackgroundBeamsWithCollisionDemo>
           {/* Content Inside the Animated Beams */}
           <div className="relative z-10">
             {/* About Section */}
@@ -61,6 +70,7 @@ export default function Page() {
             </div>
           </div>
         </BackgroundBeamsWithCollisionDemo>
-    </div>
+      </div>
+    </>
   );
 }
