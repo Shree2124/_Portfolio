@@ -3,7 +3,7 @@ import { useMotionValue } from "framer-motion";
 import React, { useState, useEffect, useRef } from "react";
 import { useMotionTemplate, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button } from "@mui/material";
 
 export const EvervaultCard = ({
   className,
@@ -11,19 +11,20 @@ export const EvervaultCard = ({
   text?: string;
   className?: string;
 }) => {
-  let mouseX = useMotionValue(0);
-  let mouseY = useMotionValue(0);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
 
   const [randomString, setRandomString] = useState("");
   const throttleTimeout = useRef<NodeJS.Timeout | null>(null);
 
   useEffect(() => {
-    let str = generateRandomString(1500);
+    const str = generateRandomString(1500);
     setRandomString(str);
   }, []);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function onMouseMove({ currentTarget, clientX, clientY }: any) {
-    let { left, top } = currentTarget.getBoundingClientRect();
+    const { left, top } = currentTarget.getBoundingClientRect();
     mouseX.set(clientX - left);
     mouseY.set(clientY - top);
 
@@ -184,8 +185,11 @@ export const EvervaultCard = ({
   );
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function CardPattern({ mouseX, mouseY, randomString }: any) {
+  // eslint-disable-next-line prefer-const
   let maskImage = useMotionTemplate`radial-gradient(250px at ${mouseX}px ${mouseY}px, white, transparent)`;
+  // eslint-disable-next-line prefer-const
   let style = { maskImage, WebkitMaskImage: maskImage };
 
   return (
@@ -217,6 +221,7 @@ export const generateRandomString = (length: number) => {
   return result;
 };
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export const Icon = ({ className, ...rest }: any) => {
   return (
     <svg

@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar/Navbar";
 import Skills from "@/components/Skills/Skills";
 import { CardHoverEffectDemo } from "@/components/CardHoverEffect/CardHoverEffect";
-import { BackgroundBeamsWithCollisionDemo } from "@/components/BackgroundBeamsWithCollision/BackgroundBeamsWithCollision";
+// import { BackgroundBeamsWithCollisionDemo } from "@/components/BackgroundBeamsWithCollision/BackgroundBeamsWithCollision";
 import Title from "@/components/Title/Title";
 import Head from "next/head";
 import { EvervaultCardDemo } from "@/components/EvervaultCardDemo/EvervaultCardDemo";
