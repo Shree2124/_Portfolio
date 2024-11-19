@@ -81,7 +81,7 @@ export const HoverEffect = ({
                     key={index}
                     label={tech}
                     sx={{
-                      backgroundColor: "#1A1A2E",
+                      backgroundColor: "#202024",
                       color: "#FFF",
                       borderColor: "#00FFFF",
                       borderWidth: "1px",

@@ -9,6 +9,7 @@ import { CardHoverEffectDemo } from "@/components/CardHoverEffect/CardHoverEffec
 import { BackgroundBeamsWithCollisionDemo } from "@/components/BackgroundBeamsWithCollision/BackgroundBeamsWithCollision";
 import Title from "@/components/Title/Title";
 import Head from "next/head";
+import { EvervaultCardDemo } from "@/components/EvervaultCardDemo/EvervaultCardDemo";
 
 export default function Page() {
   const [isClient, setIsClient] = useState(false);
@@ -35,9 +36,9 @@ export default function Page() {
           <BackgroundBeamsDemo />
         </div>
 
-        <BackgroundBeamsWithCollisionDemo>
-          <div className="relative z-10">
-            <div id="about" className=" shadow-xl">
+        
+          <div className="relative z-10 h-full">
+            <div id="about" className=" shadow-xl bg-neutral-950">
               {isClient && (
                 <motion.div
                   className="relative mx-auto max-w-screen-xl px-4"
@@ -49,13 +50,13 @@ export default function Page() {
               )}
             </div>
 
-            <div id="skills" className="shadow-xl pb-10">
+            <div id="skills" className="shadow-xl bg-neutral-950 pb-10">
               <div className="mx-auto max-w-screen-xl px-4">
                 <Skills />
               </div>
             </div>
 
-            <div id="projects" className="text-white shadow-xl">
+            <div id="projects" className="text-white bg-neutral-950 shadow-xl">
               <div className="mx-auto max-w-screen-xl px-4">
                 <div className="pt-20 pl-16">
                   <Title text={"My Projects"} />
@@ -63,8 +64,15 @@ export default function Page() {
                 <CardHoverEffectDemo />
               </div>
             </div>
+            <div id="contact" className="text-white shadow-xl max-h-full w-full bg-neutral-950 h-full pb-6">
+              <div className="px-4">
+                <div className="pt-20 pl-16">
+                  <Title text={"Contact Me"} />
+                </div>
+                <EvervaultCardDemo />
+              </div>
+            </div>
           </div>
-        </BackgroundBeamsWithCollisionDemo>
       </div>
     </>
   );

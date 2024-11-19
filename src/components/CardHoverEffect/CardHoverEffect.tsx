@@ -7,7 +7,7 @@ export const projects = [
     description:
       "An innovative solution developed during a hackathon, utilizing modern web technologies to address real-world challenges efficiently and creatively.",
     githubLink: "https://github.com/Shree2124/ScrollHack",
-    liveDemo: "",
+    liveDemo: "https://scroll-hack-rust.vercel.app/",
     techStack: [
       "MongoDB",
       "Express",
@@ -32,17 +32,8 @@ export const projects = [
     description:
       "A dynamic blog platform built with React for the frontend and Appwrite as the backend service. It allows users to create, edit, and delete blog posts with a user-friendly interface, making content management seamless. The project also includes basic user authentication and data storage capabilities.",
     githubLink: "https://github.com/Shree2124/Blogify",
-    liveDemo: "",
-    techStack: ["React", "Appwrite"],
-  },
-  {
-    title: "Blogify",
-    img: "/prj/blog.png",
-    description:
-      "A dynamic blog platform built with React for the frontend and Appwrite as the backend service. It allows users to create, edit, and delete blog posts with a user-friendly interface, making content management seamless. The project also includes basic user authentication and data storage capabilities.",
-    githubLink: "https://github.com/Shree2124/Blogify",
-    liveDemo: "",
-    techStack: ["React", "Appwrite"],
+    liveDemo: "https://blogify-seven-omega.vercel.app",
+    techStack: ["React", "Appwrite", "MUI"],
   },
 ];
 
