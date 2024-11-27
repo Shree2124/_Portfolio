@@ -38,35 +38,36 @@ export default function Page() {
 
         
           <div className="relative z-10 h-full">
-            <div id="about" className=" shadow-xl bg-neutral-950">
+            <div id="about" className="shadow-xl bg-[#151515]">
               {isClient && (
                 <motion.div
                   className="relative mx-auto max-w-screen-xl px-4"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                 >
+                  
                   <AboutSection />
                 </motion.div>
               )}
             </div>
 
-            <div id="skills" className="shadow-xl bg-neutral-950 pb-10">
+            <div id="skills" className="shadow-xl bg-[#181818] pb-10">
               <div className="mx-auto max-w-screen-xl px-4">
                 <Skills />
               </div>
             </div>
 
-            <div id="projects" className="text-white bg-neutral-950 shadow-xl">
+            <div id="projects" className="text-white bg-[#111111] shadow-xl">
               <div className="mx-auto max-w-screen-xl px-4">
-                <div className="pt-20 pl-16">
+                <div className="pt-20 pl-20">
                   <Title text={"My Projects"} />
                 </div>
                 <CardHoverEffectDemo />
               </div>
             </div>
-            <div id="contact" className="text-white shadow-xl max-h-full w-full bg-neutral-950 h-full pb-6">
-              <div className="px-4">
-                <div className="pt-20 pl-16">
+            <div id="contact" className="text-white shadow-xl max-h-full w-full bg-[#060606] h-full pb-6">
+              <div className="mx-auto max-w-screen-xl px-4">
+                <div className="pt-20 pl-20">
                   <Title text={"Contact Me"} />
                 </div>
                 <EvervaultCardDemo />

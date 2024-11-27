@@ -89,8 +89,8 @@ export const EvervaultCard = ({
                       padding: "10px",
                       borderRadius: "2px",
                       border: "1px solid white",
-                      backgroundColor: "transparent",
-                      color: "white",
+                      // backgroundColor: "transparent",
+                      color: "black",
                       outline: "none",
                       fontSize: "1.2rem",
                     }}
@@ -104,7 +104,7 @@ export const EvervaultCard = ({
                     style={{
                       color: "white",
                       marginBottom: "2px",
-                      display: "block",
+                      display: "black",
                       fontSize: "1.2rem",
                     }}
                   >
@@ -118,8 +118,8 @@ export const EvervaultCard = ({
                       padding: "10px",
                       borderRadius: "2px",
                       border: "1px solid white",
-                      backgroundColor: "transparent",
-                      color: "white",
+                      // backgroundColor: "transparent",
+                      color: "black",
                       outline: "none",
                       fontSize: "1.2rem",
                     }}
@@ -148,8 +148,8 @@ export const EvervaultCard = ({
                       padding: "4px",
                       borderRadius: "2px",
                       border: "1px solid white",
-                      backgroundColor: "transparent",
-                      color: "white",
+                      backgroundColor: "",
+                      color: "black",
                       outline: "none",
                       resize: "none",
                     }}

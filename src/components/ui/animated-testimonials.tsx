@@ -45,7 +45,9 @@ export const AnimatedTestimonials = ({
   };
   return (
     <div className="mx-auto antialiased font-sans px-4 md:px-8 lg:px-12 py-16">
+      <div className="sm:pt-20 sm:pl-20">
       <Title text="About Me"/>
+      </div>
       <div className="relative grid grid-cols-1 md:grid-cols-2  gap-20">
         <div>
           <div className="relative h-80 w-full sm:py-3">
