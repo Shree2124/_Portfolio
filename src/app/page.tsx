@@ -70,7 +70,9 @@ export default function Page() {
                 <div className="pt-20 pl-20">
                   <Title text={"Contact Me"} />
                 </div>
+                <div className="p-5">
                 <EvervaultCardDemo />
+                </div>
               </div>
             </div>
           </div>

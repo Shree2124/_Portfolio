@@ -3,7 +3,15 @@ import { useMotionValue } from "framer-motion";
 import React, { useState, useEffect, useRef } from "react";
 import { useMotionTemplate, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { Box, Button } from "@mui/material";
+import {
+  Box,
+  Button,
+  Modal,
+  Typography,
+  CircularProgress,
+} from "@mui/material";
+import axios, { AxiosResponse } from "axios";
+import { FaLinkedin, FaGithub, FaEnvelope } from "react-icons/fa";
 
 export const EvervaultCard = ({
   className,
@@ -14,6 +22,14 @@ export const EvervaultCard = ({
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [message, setMessage] = useState("");
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const [randomString, setRandomString] = useState("");
   const throttleTimeout = useRef<NodeJS.Timeout | null>(null);
 
@@ -21,6 +37,55 @@ export const EvervaultCard = ({
     const str = generateRandomString(1500);
     setRandomString(str);
   }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !phone || !message) {
+      setIsSuccess(false);
+      setModalMessage("Please fill out all fields.");
+      setModalOpen(true);
+      return;
+    }
+
+    try {
+      setLoading(true);
+      console.log(name, phone, message);
+
+      await axios
+        .post("https://portfolio-kappa-lovat-61.vercel.app/api/v1/mail", {
+          // .post("http:localhost:8000/api/v1/mail",{
+          email: "majorprojecttesting97@gmail.com",
+          name,
+          number: phone,
+          msg: message,
+        })
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        .then((res: AxiosResponse) => {
+          setIsSuccess(true);
+          setModalMessage("Message submitted successfully!");
+          setModalOpen(true);
+          setLoading(false);
+          setName("");
+          setPhone("");
+          setMessage("");
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    } catch (error) {
+      console.log(error);
+    }
+
+    // setTimeout(() => {
+    //   setIsSuccess(true);
+    //   setModalMessage("Message submitted successfully!");
+    //   setModalOpen(true);
+
+    //   setName("");
+    //   setPhone("");
+    //   setMessage("");
+    // }, 1000);
+  };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function onMouseMove({ currentTarget, clientX, clientY }: any) {
@@ -40,7 +105,7 @@ export const EvervaultCard = ({
   return (
     <div
       className={cn(
-        "p-0.5  bg-black aspect-square  flex items-center justify-center w-full h-full relative",
+        "p-0.5 bg-black aspect-square  flex items-center justify-center w-full h-full relative",
         className
       )}
     >
@@ -69,6 +134,8 @@ export const EvervaultCard = ({
                   borderRadius: "8px",
                   backgroundColor: "transparent",
                 }}
+                component="form"
+                onSubmit={handleSubmit}
               >
                 <label>
                   <span
@@ -83,19 +150,18 @@ export const EvervaultCard = ({
                   </span>
                   <input
                     type="text"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
                     required
                     style={{
                       width: "100%",
                       padding: "10px",
                       borderRadius: "2px",
                       border: "1px solid white",
-                      // backgroundColor: "transparent",
                       color: "black",
                       outline: "none",
                       fontSize: "1.2rem",
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = "white")}
-                    onBlur={(e) => (e.target.style.borderColor = "white")}
                   />
                 </label>
 
@@ -104,7 +170,7 @@ export const EvervaultCard = ({
                     style={{
                       color: "white",
                       marginBottom: "2px",
-                      display: "black",
+                      display: "block",
                       fontSize: "1.2rem",
                     }}
                   >
@@ -112,19 +178,18 @@ export const EvervaultCard = ({
                   </span>
                   <input
                     type="tel"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
                     required
                     style={{
                       width: "100%",
                       padding: "10px",
                       borderRadius: "2px",
                       border: "1px solid white",
-                      // backgroundColor: "transparent",
                       color: "black",
                       outline: "none",
                       fontSize: "1.2rem",
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = "white")}
-                    onBlur={(e) => (e.target.style.borderColor = "white")}
                   />
                 </label>
 
@@ -140,6 +205,8 @@ export const EvervaultCard = ({
                     Message
                   </span>
                   <textarea
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
                     required
                     rows={4}
                     style={{
@@ -148,13 +215,10 @@ export const EvervaultCard = ({
                       padding: "4px",
                       borderRadius: "2px",
                       border: "1px solid white",
-                      backgroundColor: "",
                       color: "black",
                       outline: "none",
                       resize: "none",
                     }}
-                    onFocus={(e) => (e.target.style.borderColor = "white")}
-                    onBlur={(e) => (e.target.style.borderColor = "white")}
                   />
                 </label>
 
@@ -174,13 +238,72 @@ export const EvervaultCard = ({
                     },
                   }}
                 >
-                  Submit
+                  {loading ? <CircularProgress color="secondary" /> : "Send"}
                 </Button>
               </Box>
+              <div className="mb-5 flex align-center justify-center gap-3 px-5 text-center">
+                <a
+                  href="mailto:shreealasande@gmail.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaEnvelope size={30} />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/shree-alasande-933934272/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaLinkedin size={30} />
+                </a>
+                <a
+                  href="https://github.com/Shree2124"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FaGithub size={30} />
+                </a>
+              </div>
             </span>
           </div>
         </div>
       </div>
+      <Modal open={modalOpen} onClose={() => setModalOpen(false)}>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 300,
+            bgcolor: "background.paper",
+            boxShadow: 24,
+            p: 4,
+            borderRadius: "8px",
+            textAlign: "center",
+          }}
+        >
+          <Typography
+            variant="h6"
+            sx={{
+              mb: 2,
+              color: isSuccess ? "green" : "red",
+            }}
+          >
+            {isSuccess ? "Success" : "Error"}
+          </Typography>
+          <Typography>{modalMessage}</Typography>
+          <Button
+            className="bg-green-500 text-white p-3 mt-3"
+            onClick={() => {
+              setModalOpen(false);
+              setModalMessage("");
+            }}
+          >
+            Ok!
+          </Button>
+        </Box>
+      </Modal>
     </div>
   );
 };
