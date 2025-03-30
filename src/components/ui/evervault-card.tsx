@@ -74,17 +74,11 @@ export const EvervaultCard = ({
         });
     } catch (error) {
       console.log(error);
+      setIsSuccess(false);
+      setModalMessage("An error occurred. Please try again.");
+      setModalOpen(true);
+      setLoading(false);
     }
-
-    // setTimeout(() => {
-    //   setIsSuccess(true);
-    //   setModalMessage("Message submitted successfully!");
-    //   setModalOpen(true);
-
-    //   setName("");
-    //   setPhone("");
-    //   setMessage("");
-    // }, 1000);
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -105,31 +99,31 @@ export const EvervaultCard = ({
   return (
     <div
       className={cn(
-        "p-0.5 bg-black aspect-square  flex items-center justify-center w-full h-full relative",
+        "p-0.5 bg-black aspect-square flex items-center justify-center w-full h-full relative",
         className
       )}
     >
       <div
         onMouseMove={onMouseMove}
-        className="group/card rounded-3xl w-full relative overflow-hidden bg-transparent flex items-center justify-center h-full"
+        className="group/card relative flex justify-center items-center bg-transparent rounded-3xl w-full h-full overflow-hidden"
       >
         <CardPattern
           mouseX={mouseX}
           mouseY={mouseY}
           randomString={randomString}
         />
-        <div className="relative z-10 flex h-full items-center justify-center w-full">
-          <div className="relative h-full w-full  rounded-full flex items-center justify-center text-white font-bold text-4xl">
-            <div className="absolute w-full h-full  blur-sm rounded-full" />
-            <span className="dark:text-white text-black z-20">
+        <div className="z-10 relative flex justify-center items-center w-full h-full">
+          <div className="relative flex justify-center items-center rounded-full w-full h-full font-bold text-white text-4xl">
+            <div className="absolute blur-sm rounded-full w-full h-full" />
+            <span className="z-20 w-full text-black dark:text-white">
               <Box
                 sx={{
                   width: "100%",
                   height: "100%",
-                  padding: "16px",
+                  padding: { xs: "12px", sm: "16px" },
                   display: "flex",
                   flexDirection: "column",
-                  gap: "12px",
+                  gap: { xs: "8px", sm: "12px" },
                   boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
                   borderRadius: "8px",
                   backgroundColor: "transparent",
@@ -138,16 +132,16 @@ export const EvervaultCard = ({
                 onSubmit={handleSubmit}
               >
                 <label>
-                  <span
-                    style={{
+                  <Typography
+                    sx={{
                       color: "white",
                       marginBottom: "2px",
                       display: "block",
-                      fontSize: "1.2rem",
+                      fontSize: { xs: "1rem", sm: "1.2rem" },
                     }}
                   >
                     Name
-                  </span>
+                  </Typography>
                   <input
                     type="text"
                     value={name}
@@ -160,22 +154,23 @@ export const EvervaultCard = ({
                       border: "1px solid white",
                       color: "black",
                       outline: "none",
-                      fontSize: "1.2rem",
+                      fontSize: "1rem",
                     }}
+                    className="text-sm sm:text-base md:text-lg"
                   />
                 </label>
 
                 <label>
-                  <span
-                    style={{
+                  <Typography
+                    sx={{
                       color: "white",
                       marginBottom: "2px",
                       display: "block",
-                      fontSize: "1.2rem",
+                      fontSize: { xs: "1rem", sm: "1.2rem" },
                     }}
                   >
                     Phone Number
-                  </span>
+                  </Typography>
                   <input
                     type="tel"
                     value={phone}
@@ -188,37 +183,39 @@ export const EvervaultCard = ({
                       border: "1px solid white",
                       color: "black",
                       outline: "none",
-                      fontSize: "1.2rem",
+                      fontSize: "1rem",
                     }}
+                    className="text-sm sm:text-base md:text-lg"
                   />
                 </label>
 
                 <label>
-                  <span
-                    style={{
+                  <Typography
+                    sx={{
                       color: "white",
                       marginBottom: "2px",
                       display: "block",
-                      fontSize: "1.2rem",
+                      fontSize: { xs: "1rem", sm: "1.2rem" },
                     }}
                   >
                     Message
-                  </span>
+                  </Typography>
                   <textarea
                     value={message}
                     onChange={(e) => setMessage(e.target.value)}
                     required
-                    rows={4}
+                    rows={3}
                     style={{
-                      fontSize: "1rem",
                       width: "100%",
-                      padding: "4px",
+                      padding: "8px",
                       borderRadius: "2px",
                       border: "1px solid white",
                       color: "black",
                       outline: "none",
                       resize: "none",
+                      fontSize: "0.9rem",
                     }}
+                    className="text-sm sm:text-base"
                   />
                 </label>
 
@@ -228,40 +225,44 @@ export const EvervaultCard = ({
                   type="submit"
                   sx={{
                     width: "100%",
-                    padding: "10px 16px",
+                    padding: { xs: "8px", sm: "10px 16px" },
                     fontWeight: "bold",
                     textTransform: "none",
                     backgroundColor: "rgba(255, 255, 255, 0.2)",
                     color: "white",
+                    fontSize: { xs: "0.9rem", sm: "1rem" },
                     "&:hover": {
                       backgroundColor: "rgba(255, 255, 255, 0.3)",
                     },
                   }}
                 >
-                  {loading ? <CircularProgress color="secondary" /> : "Send"}
+                  {loading ? <CircularProgress size={20} color="inherit" /> : "Send"}
                 </Button>
               </Box>
-              <div className="mb-5 flex align-center justify-center gap-3 px-5 text-center">
+              <div className="flex justify-center items-center gap-2 sm:gap-3 mt-2 mb-4 sm:mb-5 px-2 sm:px-5 text-center">
                 <a
                   href="mailto:shreealasande@gmail.com"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="hover:opacity-80 transition-opacity"
                 >
-                  <FaEnvelope size={30} />
+                  <FaEnvelope size={24} className="w-5 sm:w-6 h-5 sm:h-6" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/shree-alasande-933934272/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="hover:opacity-80 transition-opacity"
                 >
-                  <FaLinkedin size={30} />
+                  <FaLinkedin size={24} className="w-5 sm:w-6 h-5 sm:h-6" />
                 </a>
                 <a
                   href="https://github.com/Shree2124"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className="hover:opacity-80 transition-opacity"
                 >
-                  <FaGithub size={30} />
+                  <FaGithub size={24} className="w-5 sm:w-6 h-5 sm:h-6" />
                 </a>
               </div>
             </span>
@@ -275,10 +276,11 @@ export const EvervaultCard = ({
             top: "50%",
             left: "50%",
             transform: "translate(-50%, -50%)",
-            width: 300,
+            width: { xs: 280, sm: 300 },
+            maxWidth: "90%",
             bgcolor: "background.paper",
             boxShadow: 24,
-            p: 4,
+            p: { xs: 3, sm: 4 },
             borderRadius: "8px",
             textAlign: "center",
           }}
@@ -288,16 +290,22 @@ export const EvervaultCard = ({
             sx={{
               mb: 2,
               color: isSuccess ? "green" : "red",
+              fontSize: { xs: "1.1rem", sm: "1.25rem" },
             }}
           >
             {isSuccess ? "Success" : "Error"}
           </Typography>
-          <Typography>{modalMessage}</Typography>
+          <Typography sx={{ fontSize: { xs: "0.9rem", sm: "1rem" } }}>
+            {modalMessage}
+          </Typography>
           <Button
-            className="bg-green-500 text-white p-3 mt-3"
+            className="bg-green-500 mt-3 p-2 sm:p-3 text-white"
             onClick={() => {
               setModalOpen(false);
               setModalMessage("");
+            }}
+            sx={{
+              fontSize: { xs: "0.9rem", sm: "1rem" },
             }}
           >
             Ok!
@@ -317,16 +325,16 @@ export function CardPattern({ mouseX, mouseY, randomString }: any) {
 
   return (
     <div className="pointer-events-none">
-      <div className="absolute inset-0 rounded-2xl  [mask-image:linear-gradient(white,transparent)] group-hover/card:opacity-50"></div>
+      <div className="absolute inset-0 group-hover/card:opacity-50 rounded-2xl [mask-image:linear-gradient(white,transparent)]"></div>
       <motion.div
-        className="absolute inset-0 rounded-2xl bg-gradient-to-r from-green-500 to-blue-700 opacity-0  group-hover/card:opacity-100 backdrop-blur-xl transition duration-500"
+        className="absolute inset-0 bg-gradient-to-r from-green-500 to-blue-700 opacity-0 group-hover/card:opacity-100 backdrop-blur-xl rounded-2xl transition duration-500"
         style={style}
       />
       <motion.div
-        className="absolute inset-0 rounded-2xl opacity-0 mix-blend-overlay  group-hover/card:opacity-100"
+        className="absolute inset-0 opacity-0 group-hover/card:opacity-100 rounded-2xl mix-blend-overlay"
         style={style}
       >
-        <p className="absolute inset-x-0 text-xs h-full break-words whitespace-pre-wrap text-white font-mono font-bold transition duration-500">
+        <p className="absolute inset-x-0 h-full font-mono font-bold text-white text-xs break-words whitespace-pre-wrap transition duration-500">
           {randomString}
         </p>
       </motion.div>
